@@ -1,11 +1,23 @@
 /node_modules
 /app
 
-src/scss/libs
+libs/
 src/componetns
 /config
-
+git/
 package-lock.json
 .fig
 README.txt
 snnipets.txt
+
+node_modules/
+.gitignore
+dist/
+Source/
+version.json
+undefined
+**/*.zip
+**/*.rar
+phpmailer/
+package-lock.json
+flsStartTemplate/
