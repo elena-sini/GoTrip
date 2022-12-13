@@ -1,4 +1,11 @@
 /node_modules
 /app
+
+src/scss/libs
+src/componetns
+/config
+
 package-lock.json
 .fig
+README.txt
+snnipets.txt
