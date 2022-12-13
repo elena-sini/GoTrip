@@ -1,0 +1,206 @@
+//<BUTTONS (a.btn+tab)>
+// Снипет (HTML): btn
+
+$transition: (
+   prop: all,
+   duration: 0.2s,
+   animation: ease-out,
+);
+
+%active {
+   &:before {
+      transition: none;
+      box-shadow: inset 0.0625em 0.0625em 0.3em rgba(#000, 0.2);
+   }
+}
+;
+/*
+   <button class="btn">Get Started</button>
+   <button class="btn round">Login</button>
+   <button class="btn sm">Explore Now</button>
+   <button class="btn lg">Subscribe</button>
+*/
+
+.btn {
+   // Reset
+   appearance: none;
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   text-decoration: none !important;
+   white-space: nowrap;
+   margin: 0;
+   cursor: pointer;
+   vertical-align: baseline;
+   position: relative;
+   user-select: none;
+   z-index: 1;
+
+   // Text
+   font-family: $fontFamily;
+   font-weight: 600;
+   font-size: rem(20);
+   line-height: math.div(30, 20);
+   text-align: center;
+   text-transform: none;
+
+   // Appearance
+   gap: 0.625em;
+   border: 0.0625em solid transparent;
+   border-radius: em(27, 20);
+   @include adaptiveValue("padding-top", 23, 12);
+   @include adaptiveValue("padding-bottom", 23, 12);
+   @include adaptiveValue("padding-right", 54, 26);
+   @include adaptiveValue("padding-left", 54, 26);
+   color: #fff;
+   background: $btn-gradient;
+   @include transition;
+
+   >svg,
+   >* svg {
+      flex: 0 0 auto;
+      height: 1.2em;
+      margin: -0.1em 0;
+   }
+
+   &:before {
+      content: "";
+      display: block;
+      border-radius: inherit;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 100%;
+      bottom: 0;
+      z-index: -1;
+      @include transition;
+   }
+
+   &.round {
+      border-radius: rem(100);
+      padding: rem(13) rem(43);
+      font-size: rem(15);
+      line-height: math.div(22, 15);
+   }
+   // Sizes
+   &.sm {
+      @include adaptiveValue("font-size", 25, 20);
+      line-height: math.div(38, 25);
+      @include adaptiveValue("padding-top", 25, 12);
+      @include adaptiveValue("padding-bottom", 25, 12);
+      @include adaptiveValue("padding-right", 53, 26);
+      @include adaptiveValue("padding-left", 53, 26);
+   }
+
+   &.md {
+      @include adaptiveValue("font-size", 25, 20);
+      line-height: math.div(38, 25);
+      @include adaptiveValue("padding-top", 25, 12);
+      @include adaptiveValue("padding-bottom", 25, 12);
+      @include adaptiveValue("padding-right", 46, 20);
+      @include adaptiveValue("padding-left", 46, 20);
+   }
+
+   &.lg {
+      @include adaptiveValue("font-size", 25, 20);
+      line-height: math.div(38, 25);
+   }
+
+   &.wide {
+      display: flex;
+      width: 100%;
+
+      >*:not(:first-child) {
+         margin-left: auto;
+      }
+   }
+
+   // Animations
+   &:hover,
+   &:active {
+      &:before {
+         right: 0;
+         background-color: rgba(#fff, 0.16);
+      }
+   }
+
+   &:active {
+      @extend %active;
+   }
+
+   // .btn.secondary
+   &.secondary {
+      color: var(--main-color);
+      background-color: rgba(var(--color--rgb), 0.06);
+
+      &:hover,
+      &:active {
+         &:before {
+            background-color: rgba(#808080, 0.07);
+         }
+      }
+
+      &:active {
+         @extend %active;
+      }
+   }
+
+   // .btn.outline
+   &.outline {
+      color: var(--color);
+      border-color: var(--color);
+      background-color: transparent;
+
+      &:hover,
+      &:active {
+         color: var(--theme-color);
+         border-color: var(--theme-color);
+
+         &:before {
+            background-color: transparent;
+         }
+      }
+
+      &:active {
+         @extend %active;
+      }
+   }
+
+   // .btn.text
+   &.text {
+      color: currentColor;
+      background-color: transparent;
+
+      &:hover,
+      &:active {
+         &:before {
+            background-color: rgba(#808080, 0.07);
+         }
+      }
+
+      &:active {
+         @extend %active;
+      }
+   }
+
+   // Stretch
+   &.stretch {
+      position: unset;
+
+      &:after {
+         content: "";
+         display: block;
+         position: absolute;
+         left: 0;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         z-index: 1;
+      }
+
+      &:active {
+         @extend %active;
+      }
+   }
+
+}

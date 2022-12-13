@@ -1,0 +1,15 @@
+:root {
+   @each $color in map-keys($colors) {
+      --#{$color}: #{map-get($colors, $color)};
+      --#{$color}--rgb: #{hexToRGB(map-get($colors, $color))};
+   }
+
+   @if variable-exists(colors__dark_mode) {
+      @media (prefers-color-scheme: dark) {
+         @each $color in map-keys($colors__dark_mode) {
+            --#{$color}: #{map-get($colors__dark_mode, $color)};
+            --#{$color}--rgb: #{hexToRGB(map-get($colors__dark_mode, $color))};
+         }
+      }
+   }
+}

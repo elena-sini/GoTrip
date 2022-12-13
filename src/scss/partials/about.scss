@@ -1,0 +1,105 @@
+.about {
+   // .about__container
+   &__container {
+      display: flex;
+      @include adaptiveValue("gap", 68, 20, 0, 1920, 768);
+      @media (max-width:$mobile) {
+         flex-direction: column-reverse;
+      }
+   }
+   // .about__image-ibg
+   &__image-ibg {
+      flex: 0 0 percent(478, 1240);
+      padding-bottom: percent(537, 1280);
+      img {
+         border-radius: rem(60);
+      }
+      @media (max-width:$mobile) {
+         padding-bottom: 70%;
+         img {
+            border-radius: rem(30);
+         }
+      }
+   }
+   // .about__content
+   &__content {
+      flex: 1 1 auto;
+      max-width: rem(560);
+   }
+   // .about__title
+   &__title {
+      font-weight: 500;
+      @include adaptiveValue("font-size", 45, 28, 0, 1920, 768);
+      line-height: math.div(68, 45);
+      @include adaptiveValue("margin-bottom", 35, 20);
+      @media (max-width:$mobileSmall) {
+         line-height: 1.2;
+      }
+   }
+   // .about__body
+   &__body {
+      display: flex;
+      align-items: center;
+      @include adaptiveValue("gap", 30, 15);
+      @include adaptiveValue("margin-bottom", 60, 20, 0, 1920, 768);
+   }
+   // .about__avatar
+   &__avatar {
+      flex: 0 0 rem(134);
+      height: rem(134);
+      background: #FFAA99;
+      border-radius: 71.5px;
+      overflow: hidden;
+      @media (max-width:$tablet) {
+         flex: 0 0 rem(100);
+         height: rem(100);
+      }
+      @media (max-width:$mobile) {
+         flex: 0 0 rem(70);
+         height: rem(70);
+      }
+   }
+   // .about__info
+   &__info {}
+   // .about__name
+   &__name {
+      font-weight: 500;
+      @include adaptiveValue("font-size", 33, 20, 0, 1920, 768);
+      line-height: math.div(50, 33);
+      &:not(:last-child) {
+         margin-bottom: rem(10);
+      }
+   }
+   // .about__place
+   &__place {
+      @include adaptiveValue("font-size", 25, 16, 0, 1920, 768);
+      line-height: math.div(38, 25);
+      color: rgba(var(--color-main--rgb), 0.5);
+   }
+   // .about__text
+   &__text {
+      font-weight: 500;
+      @include adaptiveValue("font-size", 22, 18, 0, 1920, 768);
+      line-height: math.div(33, 22);
+      color: rgba(var(--color-main--rgb), 0.5);
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 30, 10);
+      }
+   }
+   // .about__rating
+   &__rating {
+      .rating_set {
+         font-size: 59px;
+         line-height: 1;
+         @media (max-width:$tablet) {
+            font-size: 40px;
+         }
+         @media (max-width:$mobile) {
+            font-size: 30px;
+         }
+      }
+      .rating__value {
+         display: none;
+      }
+   }
+}

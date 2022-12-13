@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru" class="root-html">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" sizes="16x16" href="files/favicon/favicon.ico">
+	<title>Growfy</title>
+</head>
+
+<body class="root-body">
+	<div class="root-wrapper">
+		<main class="root-page">
+			<div class="root-page__image">
+				<picture><source srcset="img/cover.webp" type="image/webp"><img src="img/cover.jpg" alt="Cover"></picture>
+			</div>
+			<div class="root-page__content">
+				<h1 class="root-page__main-title">Верстка проекта >>GROWFY<< </h1>
+						<div class="root-page__info">Особенности проекта</div>
+						<h2 class="root-page__sub-title">Готовые страницы:</h2>
+						<ol class="root-page__list">
+							<li><a target="_blank" href="home.html">Home Page</a></li>
+						</ol>
+						<div class="root-page__tnx">
+							<h2 class="root-page__sub-title">Спасибо за заказ!</h2>
+							<p>Буду рада хорошему отзыву.</p>
+							<p>Обращайтесь еще!</p>
+						</div>
+						<div class="root-page__contacts">
+							<h2 class="root-page__sub-title">Мои контакты:</h2>
+							<p>Почта: <a href="mailto:e.sinichenkova.2020@gmail.com">e.sinichenkova.2020@gmail.com</a></p>
+							<p>Телефон: <a href="tel:375291368889">+375 (29) 136-88-89</a></p>
+							<p>Соц. сеть: <a href="">ссылка на соц. сеть</a></p>
+						</div>
+			</div>
+		</main>
+	</div>
+</body>
+
+<style>
+	@charset "UTF-8";
+	@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,700&display=swap");
+
+	.root-html,
+	.root-html::before,
+	.root-html::after {
+		box-sizing: border-box;
+		padding: 0px;
+		margin: 0px;
+		border: 0px;
+	}
+
+	.root-body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		min-width: 320px;
+		width: 100%;
+		color: #fff;
+		background-color: #262429;
+		font-family: "Montserrat", sans-serif;
+		font-size: 100%;
+		line-height: 1;
+		font-size: 1rem;
+	}
+
+	a {
+		text-decoration: underline;
+		font-size: 1.5rem;
+		color: #f8f278;
+	}
+
+	a:visited {
+		text-decoration: underline;
+		color: #aaa768;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
+	ul li {
+		list-style: none;
+	}
+
+	img {
+		vertical-align: top;
+		max-width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.root-wrapper {
+		min-height: 100%;
+		overflow: hidden;
+	}
+
+	.root-page {
+		max-width: 1100px;
+		margin: 0 auto;
+		padding: 100px 50px;
+		display: flex;
+		gap: 40px;
+		align-items: flex-start;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	h1 {
+		color: #ebe691;
+		font-size: 2.5rem;
+		margin: 0px 0px 3rem 0px;
+	}
+
+	h2 {
+		color: #ebe691;
+		font-size: 1.25rem;
+		margin: 0px 0px 1rem 0px;
+	}
+
+	.root-page__image {
+		flex: 0 1 50%;
+		padding: 20px;
+	}
+
+	.root-page__info {
+		line-height: 130%;
+		font-size: 1.8rem;
+		margin: 0px 0px 1.5rem 0px;
+	}
+
+	.root-page__content {
+		flex: 0 1 50%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.root-page__list {
+		margin: 0px 0px 20px 1.25rem;
+		padding-bottom: 20px;
+		border-bottom: 1px solid #ebe691;
+	}
+
+	.root-page__list li:not(:last-child) {
+		margin: 0px 0px 15px 0px;
+	}
+
+	.root-page__contacts,
+	.root-page__tnx {
+		line-height: 140%;
+	}
+
+	.root-page__contacts a {
+		font-size: 1.2rem;
+		display: inline-flex;
+		color: #ebe691;
+		margin-bottom: 20px;
+	}
+
+	.root-page__tnx {
+		margin: 0px 0px 3rem 0px;
+	}
+
+	@media (max-width: 1100px) {
+		.root-page {
+			padding: 50px 20px;
+			gap: 20px;
+		}
+
+		.root-page__main-title {
+			font-size: 36px;
+			margin-bottom: 26px;
+		}
+
+		.root-page__info {
+			font-size: 20px;
+			margin-bottom: 26px;
+		}
+	}
+
+	@media (max-width: 800px) {
+		.root-page {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.root-page__image {
+			width: 280px;
+			margin: 0 auto;
+		}
+
+
+		.root-page__content {
+			align-items: center;
+		}
+
+		.root-page__tnx p,
+		.root-page__main-title,
+		.root-page__sub-title {
+			text-align: center;
+		}
+
+		.root-page__contacts p {
+			text-align: center;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.root-page__image {
+			width: 200px;
+		}
+	}
+</style>
+
+</html>

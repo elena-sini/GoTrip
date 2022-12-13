@@ -1,0 +1,235 @@
+//====================================================================================================
+.header {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 5;
+   color: var(--color-white);
+
+   padding: 43px 0 20px;
+   @media (max-width:$mobile) {
+      padding-top: rem(20);
+      padding-bottom: rem(20);
+   }
+   // .header__container
+   &__container {
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+   // .header__logo
+   &__logo {
+      flex: 0 0 rem(68);
+      width: rem(68);
+      height: rem(30);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      position: relative;
+      z-index: 21;
+      transform: scale(1);
+      transition: transform 0.3s ease 0s;
+
+      img {
+         width: 100%;
+         height: 100%;
+      }
+      @media (any-hover: hover) {
+         &:hover {
+            transform: scale(1.1);
+         }
+      }
+   }
+   // .header__menu
+   &__menu {}
+   &__link {
+      margin-right: rem(25);
+      font-weight: 500;
+      font-size: rem(15);
+      line-height: math.div(22, 15);
+      padding-bottom: rem(1);
+      position: relative;
+
+      &::before {
+         content: '';
+         position: absolute;
+         background: #C4C4C4;
+         border-radius: 100px;
+         width: 0;
+         height: rem(4);
+         top: 100%;
+         left: 0;
+         // opacity: 0;
+         // visibility: hidden;
+         transition: width 0.3s ease 0s;
+      }
+      @media (any-hover: hover) {
+         &:hover {
+            &::before {
+               width: rem(35);
+            }
+         }
+      }
+   }
+}
+.menu {
+
+   display: flex;
+   align-items: center;
+   // .menu__body
+   &__body {}
+   // .menu__list
+   &__list {
+      display: flex;
+      @include adaptiveValue("gap", 80, 20);
+      padding: 0 rem(20);
+   }
+   // .menu__item
+   &__item {}
+   // .menu__link
+   &__link {
+      font-weight: 500;
+      font-size: rem(15);
+      line-height: math.div(22, 15);
+      padding-bottom: rem(1);
+      position: relative;
+
+      &::before {
+         content: '';
+         position: absolute;
+         background: #C4C4C4;
+         border-radius: 100px;
+         width: 0;
+         height: rem(4);
+         top: 100%;
+         left: 0;
+         transition: width 0.3s ease 0s;
+      }
+      @media (any-hover: hover) {
+         &:hover {
+            &::before {
+               width: rem(35);
+            }
+         }
+      }
+   }
+   // .menu__icon
+   &__icon {}
+}
+//====================================================================================================
+// Подключение меню при открытом бургере
+@media (max-width:$mobile) {
+   .menu {
+      position: fixed;
+      align-items: flex-start;
+      padding: rem(100) rem(15) rem(50);
+      width: 100%;
+      height: 100%;
+      left: -100%;
+      top: 0;
+      background: var(--color-light);
+      z-index: 20;
+      transition: left 0.3s ease 0s;
+
+      &::before {
+         content: '';
+         position: fixed;
+         top: 0;
+         left: -100%;
+         height: rem(70);
+         width: 100%;
+         background: $hero-gradient;
+         transition: left 0.3s ease 0s;
+      }
+
+      .menu-open & {
+         left: 0;
+         &::before {
+            left: 0;
+         }
+      }
+   }
+   .menu__body {
+      position: relative;
+      z-index: 20;
+   }
+   .menu__item {}
+   .menu__list {
+      flex-direction: column;
+      padding-bottom: rem(20);
+      border-bottom: 1px solid rgba(var(--color-main--rgb), 0.5);
+      margin-bottom: rem(20);
+      gap: rem(20);
+   }
+   .menu__link {
+      font-size: rem(26);
+      color: var(--color-main);
+      &:not(:last-child) {
+         margin-bottom: rem(20);
+      }
+   }
+   .header__actions {
+      display: flex;
+      flex-direction: column;
+      padding-left: rem(20);
+      gap: rem(15);
+   }
+   .header__link {
+      color: var(--color-main);
+      font-size: rem(24);
+   }
+}
+//====================================================================================================
+//Burger
+.icon-menu {
+   display: none;
+   @media (max-width: $mobile) {
+      display: block;
+      position: relative;
+      flex: 0 0 $burger-width;
+      width: $burger-width;
+      height: $burger-height;
+      z-index: 21;
+      @media (any-hover: none) {
+         cursor: default;
+      }
+      span,
+      &::before,
+      &::after {
+         content: "";
+         transition: all 0.3s ease 0s;
+         right: 0;
+         position: absolute;
+         width: 100%;
+         height: $burger-line-height;
+         background-color: var(--color-burger);
+      }
+      &::before {
+         top: 0;
+      }
+      &::after {
+         bottom: 0;
+      }
+      span {
+         top: calc(50% - rem(1));
+      }
+      .menu-open & {
+         span {
+            width: 0;
+         }
+         &::before,
+         &::after {}
+         &::before {
+            top: calc(50% - rem(1));
+            transform: rotate(-45deg);
+         }
+         &::after {
+            bottom: calc(50% - rem(1));
+            transform: rotate(45deg);
+         }
+      }
+   }
+}

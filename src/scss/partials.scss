@@ -1,0 +1,14 @@
+// Подключение стилей маленьких компонентов
+@import "components/button";
+@import "components/swiper";
+@import "components/rating";
+
+
+// Подключение стилей секций и больших компонентов
+@import "partials/header";
+@import "partials/hero";
+@import "partials/choice";
+@import "partials/about";
+@import "partials/prepare";
+@import "partials/subscribe";
+@import "partials/footer";

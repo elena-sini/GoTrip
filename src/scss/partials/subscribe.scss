@@ -1,0 +1,84 @@
+.subscribe {
+   // .subscribe__container
+   &__container {}
+   // .subscribe__title
+   &__title {
+      text-align: center;
+      font-weight: 600;
+      @include adaptiveValue("font-size", 55, 40);
+      line-height: math.div(82, 55);
+      @include adaptiveValue("margin-bottom", 60, 20);
+      @media (max-width:$mobile) {
+         line-height: 1.2;
+      }
+   }
+   // .subscribe__form
+   &__form {
+      width: 80%;
+      text-align: center;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: rem(10);
+      @media (max-width:$mobile) {
+         width: 100%;
+         flex-direction: column;
+         align-items: stretch;
+      }
+   }
+   // .subscribe__input
+   &__input {
+      position: relative;
+      flex: 1 1 auto;
+
+      .input {
+         width: 100%;
+         padding: 46px;
+         background: linear-gradient(0deg, #FFFFFF, #FFFFFF), #C4C4C4;
+         border-radius: 35px;
+         font-weight: 500;
+         font-size: rem(24);
+         line-height: math.div(36, 24);
+         color: rgba(var(--color-main--rgb), 0.8);
+         @include adaptiveValue("padding-top", 46, 15, 0, 1920, 768);
+         @include adaptiveValue("padding-bottom", 46, 15, 0, 1920, 768);
+
+         &::placeholder {
+            font-weight: 500;
+            font-size: rem(24);
+            line-height: math.div(36, 24);
+            color: rgba(var(--color-main--rgb), 0.5);
+         }
+         @media (max-width:$mobile) {
+            padding: rem(15);
+            min-height: 66px;
+            font-size: rem(20);
+            &::placeholder {
+               font-size: 20px;
+            }
+         }
+      }
+   }
+   // .subscribe__btn
+   &__btn {
+      flex: 0 0 300px;
+      position: absolute;
+      right: rem(15);
+      bottom: rem(12);
+      top: rem(12);
+      @include adaptiveValue("padding-left", 85, 40, 0, 1920, 768);
+      @include adaptiveValue("padding-right", 85, 40, 0, 1920, 768);
+      @include adaptiveValue("padding-top", 34, 20, 0, 1920, 768);
+      @include adaptiveValue("padding-bottom", 34, 20, 0, 1920, 768);
+
+      @media (max-width:$mobile) {
+         right: 0;
+         bottom: 0;
+         top: 110%;
+         width: 100%;
+         min-height: 66px;
+         font-size: rem(20);
+      }
+   }
+}
